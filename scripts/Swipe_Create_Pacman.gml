@@ -14,3 +14,5 @@ move[0] = 0;
 move[1] = 0;
 
 startSwipe = false;
+
+j = 5;

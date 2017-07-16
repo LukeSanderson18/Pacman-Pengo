@@ -29,8 +29,24 @@
       <sprite>sprites\Pac_up_walk</sprite>
       <sprite>sprites\Pac_down_walk</sprite>
     </sprites>
-    <sprite>sprites\sprite21</sprite>
     <sprite>sprites\asdfasdf</sprite>
+    <sprites name="Walls">
+      <sprite>sprites\spr_wall</sprite>
+      <sprite>sprites\spr_crush</sprite>
+    </sprites>
+    <sprite>sprites\sprite22</sprite>
+    <sprites name="Ghosts">
+      <sprite>sprites\spr_red_right</sprite>
+      <sprite>sprites\spr_red_down</sprite>
+      <sprite>sprites\spr_red_left</sprite>
+      <sprite>sprites\spr_red_up</sprite>
+      <sprite>sprites\spr_pink_right</sprite>
+      <sprite>sprites\spr_pink_down</sprite>
+      <sprite>sprites\spr_pink_left</sprite>
+      <sprite>sprites\spr_pink_up</sprite>
+    </sprites>
+    <sprite>sprites\redDest</sprite>
+    <sprite>sprites\redMov</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -39,17 +55,21 @@
     <script>scripts\Swipe_Create_Pengo.gml</script>
     <script>scripts\Swipe_Create_Pacman.gml</script>
     <script>scripts\Swipe_Action_Pengo.gml</script>
-    <script>scripts\PC_Action_Pacman.gml</script>
     <script>scripts\Swipe_Action_Pacman.gml</script>
+    <script>scripts\PC_Action_Pengo.gml</script>
+    <script>scripts\PC_Action_Pacman.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\object0</object>
     <object>objects\Pengo</object>
     <object>objects\obj_wall</object>
-    <object>objects\object4</object>
+    <object>objects\bg</object>
     <object>objects\obj_side</object>
     <object>objects\Pacman</object>
     <object>objects\screenSize</object>
+    <object>objects\obj_eggManager</object>
+    <object>objects\obj_redGhost</object>
+    <object>objects\obj_redDest</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

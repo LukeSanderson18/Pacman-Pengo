@@ -3,7 +3,7 @@
   <spriteName>Pengo_down_walk</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-10</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -142,7 +142,7 @@ dir = "d";
         <arguments>
           <argument>
             <kind>9</kind>
-            <script>Swipe_Action_Pengo</script>
+            <script>PC_Action_Pengo</script>
           </argument>
           <argument>
             <kind>0</kind>
@@ -217,7 +217,22 @@ if (isMoving == false)
             dir = 1;          
             }
         }
+        
+        var inst2;
+        inst2 = instance_place(x+8,y,obj_side)
+        {
+        if(inst2 != noone)
+        {
+            with(obj_side)
+            {
+            if(x = inst2.x)
+            {
+            state = sideStates.shaking;
+            }
+            }
+        }
         startSwipe = false;
+    }
     }
     }
     }
@@ -249,7 +264,21 @@ if (isMoving == false)
             dir = 4;          
             }
         }
+        var inst2;
+        inst2 = instance_place(x,y-8,obj_side)
+        {
+        if(inst2 != noone)
+        {
+            with(obj_side)
+            {
+            if(y = inst2.y)
+            {
+            state = sideStates.shaking;
+            }
+            }
+        }
         startSwipe = false;
+    }
     }
     }
     }
@@ -281,7 +310,21 @@ if (isMoving == false)
             dir = 3;          
             }
         }
+        var inst2;
+        inst2 = instance_place(x-8,y,obj_side)
+        {
+        if(inst2 != noone)
+        {
+            with(obj_side)
+            {
+            if(x = inst2.x)
+            {
+            state = sideStates.shaking;
+            }
+            }
+        }
         startSwipe = false;
+    }
     }
     }
     }
@@ -313,7 +356,21 @@ if (isMoving == false)
             dir = 2;          
             }
         }
+        var inst2;
+        inst2 = instance_place(x,y+8,obj_side)
+        {
+        if(inst2 != noone)
+        {
+            with(obj_side)
+            {
+            if(y = inst2.y)
+            {
+            state = sideStates.shaking;
+            }
+            }
+        }
         startSwipe = false;
+        }
     }
     }
     }

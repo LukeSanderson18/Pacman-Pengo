@@ -10,7 +10,18 @@
   <persistent>0</persistent>
   <colour>0</colour>
   <showcolour>-1</showcolour>
-  <code></code>
+  <code>enum wallStates
+{
+    normal,
+    egg,
+    dying
+};
+
+enum sideStates
+{
+    normal,
+    shaking
+};</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -167,7 +178,6 @@
     <instance objName="obj_side" x="24" y="272" name="inst_9D8E2FBA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_side" x="16" y="272" name="inst_16B6C3DC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_side" x="8" y="272" name="inst_0E41E649" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Pacman" x="88" y="112" name="inst_CB6F69F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Pengo" x="120" y="112" name="inst_095CDD4C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="72" y="112" name="inst_7F70F65E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="72" y="96" name="inst_878437E0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -245,6 +255,10 @@
     <instance objName="obj_wall" x="152" y="48" name="inst_71E191F2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="168" y="48" name="inst_91F7F8E0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="screenSize" x="32" y="8" name="inst_A4B006E6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_eggManager" x="72" y="8" name="inst_D75FEF28" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Pacman" x="88" y="112" name="inst_70A8E331" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_redGhost" x="104" y="160" name="inst_F98802EB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_redDest" x="208" y="40" name="inst_4F37E323" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

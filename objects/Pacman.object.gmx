@@ -3,7 +3,7 @@
   <spriteName>Pac_down_idle</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-10</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///image speed
 
-  image_speed = 0.2;   
+  image_speed = 0.3;   
 </string>
           </argument>
         </arguments>
@@ -96,6 +96,8 @@ moveTimer = 0;  // Counts down from grid size each step
 moveSpeed = 1;     // Do not set higher than grid size!
 speedX = 0;
 speedY = 0;
+
+inputTimer = 0; //countdown for when pac can move again
 </string>
           </argument>
         </arguments>
@@ -223,6 +225,27 @@ if (isMoving == false)
     else
     {
     sprite_index = Pac_right_idle;
+    
+    if(startSwipe &amp;&amp; inputTimer &lt;= 0)
+    {
+    var inst;
+        inst = instance_place(x+8, y, obj_wall);
+        if inst != noone
+        {   
+            isMoving = true;
+        moveTimer = gridSize*2;
+        speedX = moveSpeed*0.5;
+        speedY = 0;
+        startSwipe = false;
+        sprite_index = Pac_right_walk;
+        inputTimer = 60;
+        
+            with (inst) 
+            {
+            state = wallStates.dying;         
+            }
+        }
+    }
     }
     
     }
@@ -243,6 +266,26 @@ if (isMoving == false)
     else
     {
     sprite_index = Pac_up_idle;
+    if(startSwipe &amp;&amp; inputTimer &lt;= 0)
+    {
+    var inst;
+        inst = instance_place(x, y-8, obj_wall);
+        if inst != noone
+        {   
+            isMoving = true;
+        moveTimer = gridSize*2;
+        speedX = 0;
+        speedY = -moveSpeed*0.5;
+        startSwipe = false;
+        sprite_index = Pac_up_walk;
+        inputTimer = 60;
+        
+            with (inst) 
+            {
+            state = wallStates.dying;         
+            }
+        }
+    }
     }
     
     }
@@ -263,6 +306,26 @@ if (isMoving == false)
     else
     {
     sprite_index = Pac_left_idle;
+    if(startSwipe &amp;&amp; inputTimer &lt;= 0)
+    {
+    var inst;
+        inst = instance_place(x-8, y, obj_wall);
+        if inst != noone
+        {   
+            isMoving = true;
+        moveTimer = gridSize*2;
+        speedX = -moveSpeed*0.5;
+        speedY = 0;
+        startSwipe = false;
+        sprite_index = Pac_left_walk;
+        inputTimer = 60;
+        
+            with (inst) 
+            {
+            state = wallStates.dying;         
+            }
+        }
+    }
     }
     
     }
@@ -283,6 +346,26 @@ if (isMoving == false)
     else
     {
         sprite_index = Pac_down_idle;
+    if(startSwipe &amp;&amp; inputTimer &lt;= 0)
+    {
+    var inst;
+        inst = instance_place(x, y+8, obj_wall);
+        if inst != noone
+        {   
+            isMoving = true;
+        moveTimer = gridSize*2;
+        speedX = 0;
+        speedY = moveSpeed*0.5;
+        startSwipe = false;
+        sprite_index = Pac_down_walk;
+        inputTimer = 60;
+        
+            with (inst) 
+            {
+            state = wallStates.dying;         
+            }
+        }
+    }
     }
     
     }
@@ -329,6 +412,39 @@ if (isMoving == true)
 }
 
  
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///inputTimer
+
+if (inputTimer &gt; 0)
+{
+inputTimer --;
+}
+else
+{
+inputTimer = 0;
+}
+
+
+//show_debug_message(inputTimer);
 </string>
           </argument>
         </arguments>

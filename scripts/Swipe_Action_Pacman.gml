@@ -2,24 +2,39 @@
 
 //
 // sets move[0]||move[1] to -1 - 1 depending on swipe.
-//
-if (device_mouse_check_button_pressed(0, mb_left))
+//device_mouse_x(i), device_mouse_y(i), 
+
+if (device_mouse_check_button_pressed(0, mb_left) && device_mouse_y(0) < room_height*0.5)
     {
+    j = 0;
     Swipe = true;
-    MouseXStart = mouse_x;
-    MouseYStart = mouse_y;
+    MouseXStart = device_mouse_x(j);
+    MouseYStart = device_mouse_y(j);
+    }
+else if (device_mouse_check_button_pressed(1, mb_left) && device_mouse_y(1) < room_height*0.5)
+    {
+    j = 1;
+    Swipe = true;
+    MouseXStart = device_mouse_x(j);
+    MouseYStart = device_mouse_y(j);
     }
 
-if (Swipe = true)
+if (Swipe)
 {
-MouseX = mouse_x;
-MouseY = mouse_y;
+if(device_mouse_x(j) != 0)
+{
+MouseX = device_mouse_x(j);
+}
+if(device_mouse_y(j) != 0)
+{
+MouseY = device_mouse_y(j);
+}
 SwipeTime++;
 PD = point_direction(MouseXStart, MouseYStart, MouseX, MouseY);
 //show_debug_message(point_distance(x, y, MouseX, MouseY));
 
     //if (device_mouse_check_button_released(0, mb_left))
-    if (point_distance(MouseXStart, MouseYStart, MouseX, MouseY) > 15)
+    if (point_distance(MouseXStart, MouseYStart, MouseX, MouseY) > 15 && MouseX != 0)
     {
    
     Swipe = false;
@@ -65,7 +80,7 @@ PD = point_direction(MouseXStart, MouseYStart, MouseX, MouseY);
     } 
 }
 
-if (device_mouse_check_button_released(0, mb_left))
+if (device_mouse_check_button_released(j, mb_left) && device_mouse_y(j) < room_height*0.5 )
     {
     Swipe = false;
     SwipeTime = 0;
@@ -74,5 +89,5 @@ if (device_mouse_check_button_released(0, mb_left))
     // move[0] = 0;
     // move[1] = 0;
     }
-    
+
 
